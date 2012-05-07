@@ -11,6 +11,5 @@
 <div id="header">My Club Fixtures and News</div>
 <div id="menu">menu</div>
 <div id="mainContent">Fixtures and news</div>
-do we need this
 </body>
 </html>
