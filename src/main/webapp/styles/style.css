@@ -1,0 +1,26 @@
+body{
+	width:1024px;
+	text-align:center;
+	margin:0 auto;
+}
+
+#header
+{
+	background-color: red;
+	height:100px;
+}
+
+#menu
+{
+	position:absolute;
+	background-color: blue;
+	width:200px;
+}
+
+#mainContent
+{
+	position:absolute;
+	background-color: yellow;
+	width:800px;
+	margin-left:200px;
+}
