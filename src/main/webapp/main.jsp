@@ -9,7 +9,13 @@
 </head>
 <body>
 <div id="header">My Club Fixtures and News</div>
-<div id="menu">menu</div>
-<div id="mainContent">Fixtures and news</div>
+<div id="menu">
+<ul>
+<li><a href="main.jsp">Home</a>
+<li><a href="fixture.jsp">Fixtures</a>
+<li><a href="news.jsp">News</a>
+</ul>
+</div>
+<div id="mainContent">Select the Fixtures or news on the left</div>
 </body>
 </html>

@@ -2,25 +2,32 @@ body{
 	width:1024px;
 	text-align:center;
 	margin:0 auto;
+	font-family:"Arial", Times, Sans-serif;
 }
 
 #header
 {
-	background-color: red;
-	height:100px;
+	/*background-color: red;*/
+	height:50px;
+	margin-top:20px;
+	font-size:24px;
+	border-bottom:solid;
 }
 
 #menu
 {
 	position:absolute;
-	background-color: blue;
+	/*background-color: green;*/
+	text-align:left;
 	width:200px;
+	
 }
 
 #mainContent
 {
 	position:absolute;
-	background-color: yellow;
+	/*background-color: yellow;*/
 	width:800px;
 	margin-left:200px;
+	border-left:solid;
 }
