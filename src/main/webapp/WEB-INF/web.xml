@@ -21,21 +21,14 @@
 	</filter-mapping>
 
 	<servlet>
-		<servlet-name>fixture</servlet-name>
-		<servlet-class>ie.myClub.cloudApp.FixtureServlet</servlet-class>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
-		<servlet-name>fixture</servlet-name>
-		<url-pattern>/fixtures</url-pattern>
-	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>news</servlet-name>
-		<servlet-class>ie.myClub.cloudApp.NewsServlet</servlet-class>
-	</servlet>
 	<servlet-mapping>
-		<servlet-name>news</servlet-name>
-		<url-pattern>/news</url-pattern>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

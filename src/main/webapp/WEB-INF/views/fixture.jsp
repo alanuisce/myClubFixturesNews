@@ -21,7 +21,7 @@
 		</ul>
 	</div>
 	<div id="mainContent">
-		<h1>Fixture application (servlet)</h1>
+		<h1>Fixture application (controller)</h1>
 		<h2>Create new Fixture</h2>
 		<form method="post">
 			<table>

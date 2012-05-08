@@ -16,6 +16,8 @@
 <li><a href="news.jsp">News</a>
 <li><a href="fixtures">Fixtures S</a>
 <li><a href="news">News S</a>
+<li><a href="fixture.html">Fixtures C</a>
+<li><a href="news.html">News C</a>
 </ul>
 </div>
 <div id="mainContent">Select the Fixtures or news on the left</div>

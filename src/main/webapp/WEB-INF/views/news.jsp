@@ -21,7 +21,7 @@
 </ul>
 </div>
 <div id="mainContent">
-	<h1>News application (servlet)</h1>
+	<h1>News application (controller)</h1>
 	<h2>Create new News</h2>
 	<form method="post">
 	<table>
