@@ -1,10 +1,8 @@
 package ie.myClub.cloudApp;
 
-import java.util.Date;
-
 public class Fixture {
 	private String venue;
-	private Date when;
+	private String when;
 	private boolean training;
 
 	public String getVenue() {
@@ -15,11 +13,11 @@ public class Fixture {
 		this.venue = venue;
 	}
 
-	public Date getWhen() {
+	public String getWhen() {
 		return when;
 	}
 
-	public void setWhen(Date when) {
+	public void setWhen(String when) {
 		this.when = when;
 	}
 
