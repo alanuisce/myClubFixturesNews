@@ -1,6 +1,7 @@
 package ie.myClub.cloudApp;
 
 public class Fixture {
+	private int id;
 	private String venue;
 	private String when;
 	private boolean training;
@@ -27,6 +28,14 @@ public class Fixture {
 
 	public void setTraining(boolean training) {
 		this.training = training;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

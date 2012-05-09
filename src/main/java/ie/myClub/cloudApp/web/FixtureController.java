@@ -4,7 +4,7 @@ package ie.myClub.cloudApp.web;
 import java.util.List;
 
 import ie.myClub.cloudApp.Fixture;
-import ie.myClub.cloudApp.FixtureList;
+import ie.myClub.cloudApp.jdbcFixtureList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,31 +18,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FixtureController {
 
 	@Autowired
-	private FixtureList fList;
+	private jdbcFixtureList fList;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public void listFixtures(Model model) {
-		model.addAttribute("fixture", fList.getFixtures());
+		model.addAttribute("fixture", fList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public void createFixture(Model model, @RequestParam String venue) {
 		Fixture fixture = new Fixture();
 		fixture.setVenue(venue);
-		fList.addFixture(fixture);
-		model.addAttribute("fixture", fList.getFixtures());
+		fList.save(fixture);
+		model.addAttribute("fixture", fList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void deleteFixture(Model model, @RequestParam int fixtureId) {
-		fList.getFixtures().remove(fixtureId - 1);
-		model.addAttribute("fixture", fList.getFixtures());
+		fList.delete(fixtureId);
+		model.addAttribute("fixture", fList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
 	public void updateFixture(Model model, @RequestParam int fixtureId) {
-		Fixture fixture = fList.getFixtures().get(fixtureId - 1);
+		Fixture fixture = fList.get(fixtureId);
 		fixture.setTraining(!fixture.isTraining());
-		model.addAttribute("fixture", fList.getFixtures());
+		fList.update(fixture);
+		model.addAttribute("fixture", fList.getAll());
 	}
 }

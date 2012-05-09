@@ -70,14 +70,14 @@ Game
 	<td>
 		<form method="post">
 			<input name="_method" type="hidden" value="put"> <input
-				name="fixtureId" type="hidden" value="${row.count}"> <input
+				name="fixtureId" type="hidden" value="${fixture.id}"> <input
 				type="submit" value="Training/Competition">
 		</form>
 	</td>
 	<td>
 		<form method="post">
 			<input name="_method" type="hidden" value="delete"> <input
-				name="fixtureId" type="hidden" value="${row.count}"> <input
+				name="fixtureId" type="hidden" value="${fixture.id}"> <input
 				type="submit" value="Delete">
 		</form>
 	</td>
