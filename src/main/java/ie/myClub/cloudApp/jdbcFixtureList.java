@@ -15,6 +15,9 @@ public class jdbcFixtureList {
 	public jdbcFixtureList(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+	
+	jdbcFixtureList() {
+	}
 
 	public void save(Fixture fixture) {
 		jdbcTemplate.update("insert into Fixture (text, done) values(?,?)",

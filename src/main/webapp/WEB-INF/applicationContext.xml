@@ -7,10 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="fList" class="ie.myClub.cloudApp.jdbcFixtureList">
-	<constructor-arg ref="dataSource" />
-	</bean>
-
-	<bean id="nList" class="ie.myClub.cloudApp.NewsItems">
+		<constructor-arg ref="dataSource" />
 	</bean>
 
 	<jdbc:embedded-database type="H2" id="dataSource" />
@@ -24,5 +21,9 @@
 		init-method="start" destroy-method="stop">
 		<constructor-arg value="-web,-webPort,8082" />
 	</bean>
+
+	<aop:aspectj-autoproxy />
+	
+	<bean class="ie.myClub.cloudApp.TracingAspect" />
 
 </beans>
