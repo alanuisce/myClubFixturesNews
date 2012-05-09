@@ -8,41 +8,53 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 
+@Secured("ROLE_USER")
 public class jdbcFixtureList {
+
 	private JdbcTemplate jdbcTemplate;
 
 	public jdbcFixtureList(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
+
 	jdbcFixtureList() {
 	}
 
-	public void save(Fixture fixture) {
-		jdbcTemplate.update("insert into Fixture (text, done) values(?,?)",
-				fixture.getVenue(), fixture.isTraining());
+	public void save(Fixture todo) {
+		jdbcTemplate.update(
+				"insert into Fixture (text, done, owner) values(?,?,?)",
+				todo.getVenue(), todo.isTraining(), getCurrentUser());
 	}
 
 	public Fixture get(int id) {
 		return jdbcTemplate.queryForObject(
-				"select id, text, done from Fixture where id=?", new FixtureMapper(),
-				id);
+				"select id, text, done from Fixture where id=? and owner=?",
+				new FixtureMapper(), id, getCurrentUser());
 	}
-	
+
 	public List<Fixture> getAll() {
-		return jdbcTemplate.query("select id, text, done from Fixture",
-		new FixtureMapper());
-		}
-	
+		return jdbcTemplate.query(
+				"select id, text, done from Fixture where owner=?",
+				new FixtureMapper(), getCurrentUser());
+	}
+
 	public void delete(int id) {
-		jdbcTemplate.update("delete from Fixture where id=?", id);
-		}
-	
-	public void update(Fixture fixture) {
-		jdbcTemplate.update("update Fixture set text=?, done=? where id=?",
-				fixture.getVenue(), fixture.isTraining(), fixture.getId());
-		}
+		jdbcTemplate.update("delete from Fixture where id=? and owner=?", id,
+				getCurrentUser());
+	}
+
+	public void update(Fixture todo) {
+		jdbcTemplate.update(
+				"update Fixture set text=?, done=? where id=? and owner=?",
+				todo.getVenue(), todo.isTraining(), todo.getId(), getCurrentUser());
+	}
+
+	private String getCurrentUser() {
+		return SecurityContextHolder.getContext().getAuthentication().getName();
+	}
 }
 
 class FixtureMapper implements RowMapper<Fixture> {
