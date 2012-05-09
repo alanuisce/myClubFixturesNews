@@ -21,7 +21,7 @@
 		</ul>
 	</div>
 	<div id="mainContent">
-		<h1>Fixture application (controller)</h1>
+		<h1>Fixture application (servlet)</h1>
 		<h2>Create new Fixture</h2>
 		<form method="post">
 			<table>
@@ -52,7 +52,7 @@
 				<td>Update Type</td>
 				<td>Delete</td>
 			</tr>
-			<c:forEach items="${fixtures}" var="fixture" varStatus="row">
+			<c:forEach items="${fixture}" var="fixture" varStatus="row">
 
 
 <tr>

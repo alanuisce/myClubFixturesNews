@@ -52,7 +52,7 @@
 				<td>Update Type</td>
 				<td>Delete</td>
 			</tr>
-			<c:forEach items="${fixtures}" var="fixture" varStatus="row">
+			<c:forEach items="${fixture}" var="fixture" varStatus="row">
 
 
 <tr>
