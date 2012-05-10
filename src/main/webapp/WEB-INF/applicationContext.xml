@@ -13,8 +13,7 @@
 		<constructor-arg ref="dataSource" />
 	</bean>
 
-	<jdbc:initialize-database data-source="dataSource"
-		ignore-failures="ALL">
+	<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
 		<jdbc:script location="classpath:db-schema.sql" />
 	</jdbc:initialize-database>
 
