@@ -26,9 +26,12 @@ public class FixtureController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void createFixture(Model model, @RequestParam String venue) {
+	public void createFixture(Model model, @RequestParam String venue, @RequestParam String when, @RequestParam String training) {
 		Fixture fixture = new Fixture();
 		fixture.setVenue(venue);
+		fixture.setWhen(when);
+		boolean t = training != null;
+		fixture.setTraining(t);
 		fList.save(fixture);
 		model.addAttribute("fixture", fList.getAll());
 	}

@@ -14,14 +14,11 @@ prefix="security"%>
 <body>
 	<div id="header">My Club Fixtures and News</div>
 	<div id="menu">
-	<a href="j_spring_security_logout">Logout: <security:authentication property="principal.username" />
-</a>
+	<a href="j_spring_security_logout">Logout: <security:authentication property="principal.username" /></a>
 		<ul>
 			<li><a href="main.jsp">Home</a>
-			<li><a href="fixture.jsp">Fixtures</a>
-			<li><a href="news.jsp">News</a>
-			<li><a href="fixtures">Fixtures S</a>
-			<li><a href="news">News S</a>
+			<li><a href="fixture.html">Fixtures C</a>
+			<li><a href="news.html">News C</a>
 		</ul>
 	</div>
 	<div id="mainContent">

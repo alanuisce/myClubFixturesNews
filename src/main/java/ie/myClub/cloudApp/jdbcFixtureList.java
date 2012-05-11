@@ -23,21 +23,21 @@ public class jdbcFixtureList {
 	jdbcFixtureList() {
 	}
 
-	public void save(Fixture todo) {
+	public void save(Fixture fixture) {
 		jdbcTemplate.update(
-				"insert into Fixture (text, done, owner) values(?,?,?)",
-				todo.getVenue(), todo.isTraining(), getCurrentUser());
+				"insert into Fixture (venue, when, training, owner) values(?,?,?,?)",
+				fixture.getVenue(), fixture.getWhen(), fixture.isTraining(), getCurrentUser());
 	}
 
 	public Fixture get(int id) {
 		return jdbcTemplate.queryForObject(
-				"select id, text, done from Fixture where id=? and owner=?",
+				"select id, venue, when, training from Fixture where id=? and owner=?",
 				new FixtureMapper(), id, getCurrentUser());
 	}
 
 	public List<Fixture> getAll() {
 		return jdbcTemplate.query(
-				"select id, text, done from Fixture where owner=?",
+				"select id, venue, when, training done from Fixture where owner=?",
 				new FixtureMapper(), getCurrentUser());
 	}
 
@@ -46,10 +46,10 @@ public class jdbcFixtureList {
 				getCurrentUser());
 	}
 
-	public void update(Fixture todo) {
+	public void update(Fixture fixture) {
 		jdbcTemplate.update(
-				"update Fixture set text=?, done=? where id=? and owner=?",
-				todo.getVenue(), todo.isTraining(), todo.getId(), getCurrentUser());
+				"update Fixture set venue=?, when=?, training=? where id=? and owner=?",
+				fixture.getVenue(), fixture.getWhen(), fixture.isTraining(), fixture.getId(), getCurrentUser());
 	}
 
 	private String getCurrentUser() {
@@ -62,8 +62,9 @@ class FixtureMapper implements RowMapper<Fixture> {
 	public Fixture mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Fixture fixture = new Fixture();
 		fixture.setId(rs.getInt("id"));
-		fixture.setVenue(rs.getString("text"));
-		fixture.setTraining(rs.getBoolean("done"));
+		fixture.setVenue(rs.getString("venue"));
+		fixture.setWhen(rs.getString("when"));
+		fixture.setTraining(rs.getBoolean("training"));
 		return fixture;
 	}
 

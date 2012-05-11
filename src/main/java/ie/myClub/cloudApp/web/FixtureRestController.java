@@ -75,7 +75,7 @@ public class FixtureRestController {
 	}
 
 	// get : curl -i --user alan:alan123 -H "Content-Type: application/json" http://localhost:8080/demoapp/rest/todo
-	// create: curl -i --user alan:alan123 -H "Content-Type: application/json" -X POST -d '{"text": "buy milk"}' http://localhost:8080/demoapp/rest/todo
+	// create: curl -i --user alan:alan123 -H "Content-Type: application/json" -X POST -d '{"venue": "buy milk"}' http://localhost:8080/demoapp/rest/todo
 	// get : curl -i --user alan:alan123 -H "Content-Type: application/json" http://localhost:8080/demoapp/rest/todo/1
-	// update: curl -i --user alan:alan123 -H "Content-Type: application/json" -X PUT -d '{"text": "buy milk", "done": true}' http://localhost:8080/demoapp/rest/todo/1
+	// update: curl -i --user alan:alan123 -H "Content-Type: application/json" -X PUT -d '{"venue": "Practice", "done": true}' http://localhost:8080/demoapp/rest/todo/1
 	// delete: curl -i --user alan:alan123 -H "Content-Type: application/json" -X DELETE http://localhost:8080/demoapp/rest/todo/1
