@@ -1,4 +1,3 @@
-<%@ page import="ie.myClub.cloudApp.News"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -14,6 +13,7 @@ prefix="security"%>
 <body>
 <div id="header">My Club Fixtures and News</div>
 <div id="menu">
+<a href="j_spring_security_logout">Logout: <security:authentication property="principal.username" /></a>
 <ul>
 <li><a href="main.jsp">Home</a>
 <li><a href="fixture.html">Fixtures</a>
@@ -21,7 +21,7 @@ prefix="security"%>
 </ul>
 </div>
 <div id="mainContent">
-	<h1>News application</h1>
+	<h1>News</h1>
 	<h2>Create new News</h2>
 	<form method="post">
 	<table>
@@ -30,17 +30,25 @@ prefix="security"%>
 		<tr><td>&nbsp</td><td><input type="submit"></td></tr>
 	</table>
 	</form>
-	<h2>List of current News</h2>
+	<h2>List of My current News</h2>
 	<table width=100%>
 	<c:forEach items="${news}" var="news" varStatus="row">
 			<tr><td><b>${news.heading}</b></td>
 			<td>
 		<form method="post">
 			<input name="_method" type="hidden" value="delete"> <input
-				name="newsId" type="hidden" value="${row.count}"> <input
+				name="newsId" type="hidden" value="${news.id}"> <input
 				type="submit" value="Delete">
 		</form></td></tr>
 		<tr><td>${news.body}</td></tr>
+	</c:forEach>
+	</table>
+	
+	<h2>List of ALL current News</h2>
+	<table width=100%>
+	<c:forEach items="${newsAll}" var="newsAll" varStatus="row">
+		<tr><td><b>${newsAll.heading}</b></td></tr>
+		<tr><td>${newsAll.body}</td></tr>
 	</c:forEach>
 	</table>
 	

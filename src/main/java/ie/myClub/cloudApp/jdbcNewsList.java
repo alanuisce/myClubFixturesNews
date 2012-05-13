@@ -35,10 +35,16 @@ public class jdbcNewsList {
 				new NewsMapper(), id, getCurrentUser());
 	}
 
-	public List<News> getAll() {
+	public List<News> getAllMyNews() {
 		return jdbcTemplate.query(
 				"select id, heading, body from News where owner=?",
 				new NewsMapper(), getCurrentUser());
+	}
+	
+	public List<News> getAll() {
+		return jdbcTemplate.query(
+				"select id, heading, body from News",
+				new NewsMapper());
 	}
 
 	public void delete(int id) {

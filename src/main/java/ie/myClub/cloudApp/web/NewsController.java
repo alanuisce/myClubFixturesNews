@@ -1,6 +1,5 @@
 package ie.myClub.cloudApp.web;
 
-
 import java.util.List;
 
 import ie.myClub.cloudApp.News;
@@ -22,7 +21,8 @@ public class NewsController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public void listNews(Model model) {
-		model.addAttribute("news", nList.getAll());
+		model.addAttribute("news", nList.getAllMyNews());
+		model.addAttribute("newsAll", nList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -31,12 +31,14 @@ public class NewsController {
 		news.setHeading(heading);
 		news.setBody(body);
 		nList.save(news);
-		model.addAttribute("news", nList.getAll());
+		model.addAttribute("news", nList.getAllMyNews());
+		model.addAttribute("newsAll", nList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void deleteNews(Model model, @RequestParam int newsId) {
 		nList.delete(newsId);
-		model.addAttribute("news", nList.getAll());
+		model.addAttribute("news", nList.getAllMyNews());
+		model.addAttribute("newsAll", nList.getAll());
 	}
 }
