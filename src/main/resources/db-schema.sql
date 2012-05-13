@@ -1,1 +1,2 @@
 create table Fixture(id serial, venue varchar, when varchar, training boolean, owner varchar, primary key(id));
+create table News(id serial, heading varchar, body varchar, owner varchar, primary key(id));

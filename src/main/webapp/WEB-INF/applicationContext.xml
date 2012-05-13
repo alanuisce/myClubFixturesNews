@@ -12,6 +12,10 @@
 	<bean id="fList" class="ie.myClub.cloudApp.jdbcFixtureList">
 		<constructor-arg ref="dataSource" />
 	</bean>
+	
+	<bean id="nList" class="ie.myClub.cloudApp.jdbcNewsList">
+		<constructor-arg ref="dataSource" />
+	</bean>
 
 	<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
 		<jdbc:script location="classpath:db-schema.sql" />

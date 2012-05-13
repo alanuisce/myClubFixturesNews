@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequestMapping("fixture")
+@RequestMapping("main")
 @Controller
-public class FixtureController {
+public class MainController {
 
 	@Autowired
 	private jdbcFixtureList fList;
@@ -23,7 +23,7 @@ public class FixtureController {
 	@RequestMapping(method = RequestMethod.GET)
 	public void listFixtures(Model model) {
 		model.addAttribute("fixture", fList.getAllMyFixture());
-		model.addAttribute("fixtureAll", fList.getAll());
+		model.addAttribute("main", fList.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

@@ -1,6 +1,7 @@
 package ie.myClub.cloudApp;
 
 public class News {
+	private Integer id;
 	private String heading;
 	private String body;
 
@@ -18,5 +19,13 @@ public class News {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

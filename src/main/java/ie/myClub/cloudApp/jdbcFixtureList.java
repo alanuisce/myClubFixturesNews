@@ -35,10 +35,16 @@ public class jdbcFixtureList {
 				new FixtureMapper(), id, getCurrentUser());
 	}
 
+	public List<Fixture> getAllMyFixture() {
+		return jdbcTemplate.query(
+				"select id, venue, when, training from Fixture where owner=?",
+				new FixtureMapper(), getCurrentUser());
+	}
+	
 	public List<Fixture> getAll() {
 		return jdbcTemplate.query(
-				"select id, venue, when, training done from Fixture where owner=?",
-				new FixtureMapper(), getCurrentUser());
+				"select id, venue, when, training from Fixture",
+				new FixtureMapper());
 	}
 
 	public void delete(int id) {
